@@ -1,0 +1,120 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header id="main">
+            <nav class="menu">
+                <p>Void</p>
+                <a id="break-nav" href="#platforms">[Break]</a>
+                <a id="connect-nav" href="#about-section">[Connect]</a>
+                <!-- <a id="build-nav" href="">[Build]</a> -->
+                <p id="second">Packet</p>
+            </nav>
+            <section class="voidpacket">
+                <h1>VOIDPACKET</h1>
+                <h2>[Exploring the Spaces Between Code]</h2>
+            </section>
+        </header>
+        <main>
+            <section class="hacking-platforms" id="platforms">
+                <div class="platform-box" id="portswigger" 
+                    data-desc="Web Security Academy with interactive labs and learning paths"
+                    data-link="https://portswigger.net/web-security/all-labs"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/portSwigger">
+                    Portswigger
+                </div>
+                <div class="platform-box" id="bugforge"
+                    data-desc="The daily challenge platform for bug bounty hunters, security researchers, and penetration testers"
+                    data-link="https://bugforge.io"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/bugForge">
+                    BugForge
+                </div>
+                <div class="platform-box" id="ctf" 
+                    data-desc="Capture The Flag platform with diverse security challenges"
+                    data-link="https://247ctf.com"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/247Ctf/WEB">
+                    247CTF
+                </div>
+                <div class="platform-box" id="tryhackme"
+                    data-desc="The place where anyone can learn Cyber Security topics and get hands on practice"
+                    data-link="https://tryhackme.com"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation">
+                    TryHackMe
+                </div>
+                <div class="platform-box" id="leetcode"
+                    data-desc="LeetCode is the best platform to help you enhance your skills, expand your knowledge and prepare for technical interviews"
+                    data-link="https://leetcode.com"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/leetCode">
+                    LeetCode
+                </div>
+                <div class="platform-box" id="hackmyvm"
+                    data-desc="Have fun hacking VMs and learning"
+                    data-link="https://hackmyvm.eu"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation">
+                    HackMyVM
+                </div>
+                <div class="platform-box" id="pico"
+                    data-desc="Learning hacking with capture-the-flag puzzles"
+                    data-link="https://picoctf.org"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/picoCTF">
+                    PicoCTF
+                </div>
+                <div class="platform-box" id="hacktheweb"
+                    data-desc="Fun little challenges (sometimes) to relax"
+                    data-link="https://hack.arrrg.de"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation">
+                    HackTheWeb
+                </div>
+                <div class="platform-box" id="intigriti"
+                    data-desc="The BEST bug bounty platform on the planet"
+                    data-link="https://www.intigriti.com/researchers/hackademy"
+                    data-github="https://github.com/VOIDPACKET-VP/Labs-Documentation/tree/main/Intigriti%20chall">
+                    Intigriti
+                </div>
+            </section>
+            <section id="about-section">
+                <h2>About Me</h2>
+                <p>I'm Akram, a 20-year-old from Morocco. I grew up in Azilal, a small town in the Atlas Mountains where I spent most of my time cycling around and exploring.
+                That same curiosity now drives my passion for cybersecurity and web development. Right now, I'm focused on learning both sides : how to build web applications properly and, more importantly, how to break them safely.
+                I spend my days solving hacking challenges, building projects, and studying everything from JavaScript to penetration testing. My goal is to become a web application security specialist who actually understands how the code works from the inside.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/VOIDPACKET-VP" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/elqably-akram" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://x.com/VOIDPACKET-VP" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i> X
+                    </a>
+                    <a href="#" class="social-link" id="discord-link">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                </div>
+                
+                <!-- Certifications Section -->
+                <div class="certs-section">
+                    <h3>Certifications</h3>
+                    <p class="coming-soon">Coming soon... First certification in progress! 🚀</p>
+                </div>
+            </section>
+        <div id="platform-overlay" class="overlay">
+            <div class="expanded-content">
+                <button class="close-btn">&times;</button>
+                <h2 id="expanded-title"></h2>
+                <p id="expanded-desc"></p>
+                <div class="expanded-links">
+                    <a id="platform-link" class="platform-btn" target="_blank">Visit Platform</a>
+                    <a id="github-link" class="github-btn" target="_blank">My Documentation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
