@@ -360,12 +360,13 @@ a:hover, a:focus {
     .menu {
         padding: 10px 20px;
         margin: 15px auto 0 auto;
-        width: 90%;
     }
+    
     .menu > a {
         font-size: 0.9rem;
         padding: 6px 12px;
     }
+    
     .menu > p {
         font-size: 1rem;
         padding: 0 10px;
@@ -377,8 +378,7 @@ a:hover, a:focus {
     }
     
     .voidpacket h1 {
-        font-size: 4rem; /* SMALLER TO PREVENT OVERFLOW */
-        word-break: break-word; /* FORCE BREAK IF NEEDED */
+        font-size: 4rem;
     }
     
     .voidpacket h2 {
@@ -386,25 +386,23 @@ a:hover, a:focus {
         margin: -15px 0 0 0;
         max-width: 95%;
     }
-    
-    /* FIX ABOUT SECTION FOR MOBILE */
+
     #about-section p {
-        margin: 10px 0; /* REMOVE THE 100px MARGIN THAT CAUSES SHIFT */
+        margin: 10px 0; 
         font-size: 1.2rem;
         padding: 25px;
         line-height: 1.6;
     }
     
     .platform-box {
-        flex: 0 0 calc(50% - 15px); /* KEEP GRID LAYOUT */
+        flex: 0 0 calc(50% - 15px); 
         height: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .voidpacket h1 {
-        font-size: 2.5rem; /* EVEN SMALLER FOR MOBILE */
-        letter-spacing: -1px; /* COMPENSATE FOR SMALLER SIZE */
+        font-size: 3rem; 
     }
     
     .voidpacket h2 {
@@ -413,11 +411,10 @@ a:hover, a:focus {
     }
     
     .menu {
-        /* KEEP the bar shape but make it work on mobile */
-        flex-direction: row; /* KEEP AS ROW to maintain bar shape */
-        flex-wrap: nowrap; /* PREVENT WRAPPING */
+        flex-direction: row; 
+        flex-wrap: nowrap; 
         gap: 5px;
-        border-radius: 50px; /* KEEP THE ROUNDED BAR */
+        border-radius: 50px; 
         padding: 8px 15px;
         width: 95%;
     }
