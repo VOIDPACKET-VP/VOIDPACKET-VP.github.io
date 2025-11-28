@@ -1,16 +1,28 @@
 html {
     scroll-behavior: smooth;
 }
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: "Montserrat", sans-serif;
     background-image: url(assets/Backgrounds/marc-wieland-trnTvywx2Rg-unsplash.jpg);
     background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Better performance */
     margin: 0;
     padding: 0;
     width: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
     text-align: center;
-    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 a {
@@ -27,8 +39,8 @@ a:hover, a:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 40px auto 0 auto;
-    padding: 6px 30px;
+    margin: 20px auto;
+    padding: 8px 25px;
     background-color: rgba(63, 60, 73, 0.4);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 245, 238, 0.3);
@@ -36,7 +48,6 @@ a:hover, a:focus {
     position: sticky;
     top: 10px;
     z-index: 2;
-    box-sizing: border-box;
 }
 .menu > a {
     color: #FFF5EE;
@@ -98,9 +109,10 @@ a:hover, a:focus {
     align-items: center;
     justify-content: center;
     color: #9790b3;
-    text-align: center; 
-    padding: 110px 20px 200px 20px; 
+    text-align: center;
+    padding: 80px 20px 120px 20px;
     min-height: 40vh;
+    width: 100%;
 }
 
 .voidpacket h1 {
@@ -194,10 +206,11 @@ a:hover, a:focus {
 }
 
 .platform-box {
-    flex: 0 0 300px;
-    height: 300px;
+    flex: 1 1 280px;
+    min-width: 250px;
+    max-width: 300px;
+    height: 280px;
     border: 1px solid #FFF5EE;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,10 +221,23 @@ a:hover, a:focus {
     background-blend-mode: overlay;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
 }
-
+/* Mobile hover fixes */
+@media (hover: none) and (pointer: coarse) {
+    .platform-box:hover,
+    a:hover,
+    a:focus {
+        transform: none !important;
+    }
+    
+    .platform-btn:hover,
+    .github-btn:hover,
+    .social-link:hover {
+        transform: none !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #FFF5EE !important;
+    }
+}
 .platform-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -243,6 +269,7 @@ a:hover, a:focus {
 #intigriti { 
     background-image: url(assets/hacking/intigriti.webp); 
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -419,4 +446,46 @@ a:hover, a:focus {
     white-space: nowrap;
     margin-bottom: 0.5rem;
     border: 1px solid #FFF5EE;;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .menu {
+        width: 85%;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 25px;
+    }
+    
+    .voidpacket {
+        padding: 30px 10px 60px 10px;
+    }
+    
+    .voidpacket h1 {
+        font-size: 3rem;
+    }
+    
+    .platform-box {
+        flex: 1 1 100%;
+        height: 150px;
+        min-width: auto;
+    }
+    
+    #about-section p {
+        font-size: 1rem;
+        padding: 15px;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+}
+
+/* Safe area handling for notches */
+@supports(padding: max(0px)) {
+    .container {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
 }
