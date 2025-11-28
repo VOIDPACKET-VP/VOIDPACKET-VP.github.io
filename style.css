@@ -88,8 +88,8 @@ a:hover, a:focus {
     line-height: 1;
     width: 100%;
     text-align: center;
-    word-wrap: break-word; /* ALLOW WORD BREAKING */
-    overflow-wrap: break-word; /* MODERN BROWSERS */
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
 }
 
 .voidpacket h2 {
@@ -102,7 +102,6 @@ a:hover, a:focus {
     max-width: 90%;
 }
 
-/* FIX ABOUT SECTION - REMOVE THE MARGIN THAT'S CAUSING SHIFT */
 #about-section {
     display: flex;
     justify-content: center;
@@ -124,7 +123,7 @@ a:hover, a:focus {
 
 #about-section p {
     text-align: center;
-    margin: 10px auto; /* CHANGED FROM 100px to auto */
+    margin: 10px auto;
     font-size: 1.7rem;
     padding: 40px;
     background-color: rgba(63, 60, 73, 0.4);
@@ -135,7 +134,6 @@ a:hover, a:focus {
     width: 100%;
 }
 
-/* RESTORE HACKING PLATFORMS GRID */
 .hacking-platforms {
     display: flex;
     flex-wrap: wrap;
@@ -157,7 +155,7 @@ a:hover, a:focus {
 }
 
 .platform-box {
-    flex: 0 0 300px; /* RESTORE ORIGINAL FLEX */
+    flex: 0 0 300px;
     height: 300px;
     border: 1px solid #FFF5EE;
     padding: 0;
@@ -180,7 +178,6 @@ a:hover, a:focus {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* KEEP ALL YOUR ORIGINAL PLATFORM BACKGROUNDS */
 #portswigger { background-image: url(assets/hacking/portswigger.webp); }
 #bugforge { background: #1a1a1a; }
 #ctf { background-image: url(assets/hacking/ctf.webp); }
@@ -191,7 +188,6 @@ a:hover, a:focus {
 #hacktheweb { background-image: url(assets/hacking/hacktheweb_362cc92895.webp); }
 #intigriti { background-image: url(assets/hacking/intigriti.webp); }
 
-/* KEEP ALL YOUR EXISTING OVERLAY STYLES */
 .overlay {
     position: fixed;
     top: 0;
@@ -281,7 +277,6 @@ a:hover, a:focus {
     to { opacity: 1; }
 }
 
-/* KEEP YOUR SOCIAL LINKS STYLES */
 .social-links {
     display: flex;
     justify-content: center;
@@ -311,7 +306,6 @@ a:hover, a:focus {
     transform: translateY(-2px);
 }
 
-/* KEEP CERTIFICATIONS STYLES */
 .certs-section {
     text-align: center;
     margin-top: 2rem;
@@ -332,7 +326,6 @@ a:hover, a:focus {
     font-style: italic;
 }
 
-/* KEEP DISCORD TOOLTIP */
 .discord-tooltip {
     position: absolute;
     bottom: 100%;
@@ -348,7 +341,7 @@ a:hover, a:focus {
     border: 1px solid #FFF5EE;
 }
 
-/* ========== MINIMAL MOBILE FIXES ONLY ========== */
+/* ========== Mobile ========== */
 
 @media (max-width: 1200px) {
     .voidpacket h1 {
@@ -420,18 +413,17 @@ a:hover, a:focus {
     }
     
     .menu > p {
-        order: -1;
-        margin-bottom: 0; /* REMOVE margin that breaks alignment */
+        margin-bottom: 0; 
         font-size: 0.9rem;
     }
     
     .menu > a {
         font-size: 0.8rem;
         padding: 4px 8px;
-        white-space: nowrap; /* PREVENT TEXT WRAPPING */
+        white-space: nowrap; 
     }
     
-    /* FIX ABOUT SECTION FOR SMALL MOBILE */
+ 
     #about-section p {
         font-size: 1rem;
         padding: 20px;
@@ -440,7 +432,7 @@ a:hover, a:focus {
     }
     
     .platform-box {
-        flex: 0 0 100%; /* STACK ON MOBILE */
+        flex: 0 0 100%; 
         height: 150px;
     }
 }
