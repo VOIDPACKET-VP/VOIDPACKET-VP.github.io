@@ -11,32 +11,32 @@ body {
     background-image: url(assets/Backgrounds/marc-wieland-trnTvywx2Rg-unsplash.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: scroll;
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh;
     overflow-x: hidden;
     text-align: center;
 }
 
-/* Main container for centering content sections */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* Menu should NOT be inside container for full width */
+a:hover, a:focus {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px #8255ec;
+}
+
+/* RESTORE ORIGINAL MENU STYLES */
 .menu {
     width: 95%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px auto;
-    padding: 8px 25px;
+    margin: 40px auto 0 auto;
+    padding: 6px 30px;
     background-color: rgba(63, 60, 73, 0.4);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 245, 238, 0.3);
@@ -67,7 +67,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Voidpacket Section */
+/* FIX VOIDPACKET CENTERING */
 .voidpacket {
     font-family: "Orbitron", sans-serif;
     display: flex;
@@ -76,7 +76,7 @@ body {
     justify-content: center;
     color: #9790b3;
     text-align: center;
-    padding: 80px 20px 120px 20px;
+    padding: 110px 20px 200px 20px;
     min-height: 40vh;
     width: 100%;
 }
@@ -87,6 +87,7 @@ body {
     margin: 0;
     line-height: 1;
     width: 100%;
+    text-align: center;
 }
 
 .voidpacket h2 {
@@ -99,42 +100,40 @@ body {
     max-width: 90%;
 }
 
-/* About Section - COMPLETELY FIXED */
+/* FIX ABOUT SECTION - REMOVE THE MARGIN THAT'S CAUSING SHIFT */
 #about-section {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     color: #FFF5EE;
-    margin: 50px 0;
+    margin-bottom: 50px;
     width: 100%;
-    padding: 0;
+    padding: 0 20px;
 }
 
 #about-section h2 {
     background-color: rgba(63, 60, 73, 0.4);
     border: 1px solid #FFF5EE;
     border-radius: 10px;
-    padding: 10px 20px;
-    width: auto;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+    padding: 10px;
+    margin: 0 auto 20px auto;
 }
 
 #about-section p {
     text-align: center;
-    margin: 0 0 30px 0;
+    margin: 10px auto; /* CHANGED FROM 100px to auto */
     font-size: 1.7rem;
     padding: 40px;
     background-color: rgba(63, 60, 73, 0.4);
     border: 1px solid #FFF5EE;
     border-radius: 10px;
-    line-height: 1.6;
+    line-height: 50px;
+    max-width: 1200px;
     width: 100%;
-    max-width: 100%;
 }
 
-/* Hacking Platforms */
+/* RESTORE HACKING PLATFORMS GRID */
 .hacking-platforms {
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +146,7 @@ body {
     text-decoration: underline;
     text-shadow: 0 0 10px #000000;
     transition: filter 0.3s ease;
-    padding: 0;
+    padding: 0 20px;
     width: 100%;
 }
 
@@ -156,11 +155,10 @@ body {
 }
 
 .platform-box {
-    flex: 1 1 280px;
-    min-width: 250px;
-    max-width: 300px;
-    height: 280px;
+    flex: 0 0 300px; /* RESTORE ORIGINAL FLEX */
+    height: 300px;
     border: 1px solid #FFF5EE;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,6 +169,8 @@ body {
     background-blend-mode: overlay;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .platform-box:hover {
@@ -178,36 +178,18 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Platform background images */
-#portswigger { 
-    background-image: url(assets/hacking/portswigger.webp); 
-}
-#bugforge { 
-    background: #1a1a1a; 
-}
-#ctf { 
-    background-image: url(assets/hacking/ctf.webp); 
-}
-#tryhackme { 
-    background-image: url(assets/hacking/thm.webp);
-}
-#leetcode { 
-    background-image: url(assets/hacking/leetcode.webp); 
-}
-#hackmyvm { 
-    background-image: url(assets/hacking/hackmyvm-logo-4.webp); 
-}
-#pico { 
-    background-image: url(assets/hacking/picoctf-logo-og.webp); 
-}
-#hacktheweb { 
-    background-image: url(assets/hacking/hacktheweb_362cc92895.webp); 
-}
-#intigriti { 
-    background-image: url(assets/hacking/intigriti.webp); 
-}
+/* KEEP ALL YOUR ORIGINAL PLATFORM BACKGROUNDS */
+#portswigger { background-image: url(assets/hacking/portswigger.webp); }
+#bugforge { background: #1a1a1a; }
+#ctf { background-image: url(assets/hacking/ctf.webp); }
+#tryhackme { background-image: url(assets/hacking/thm.webp); }
+#leetcode { background-image: url(assets/hacking/leetcode.webp); }
+#hackmyvm { background-image: url(assets/hacking/hackmyvm-logo-4.webp); }
+#pico { background-image: url(assets/hacking/picoctf-logo-og.webp); }
+#hacktheweb { background-image: url(assets/hacking/hacktheweb_362cc92895.webp); }
+#intigriti { background-image: url(assets/hacking/intigriti.webp); }
 
-/* Overlay Styles */
+/* KEEP ALL YOUR EXISTING OVERLAY STYLES */
 .overlay {
     position: fixed;
     top: 0;
@@ -220,7 +202,6 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
 }
 
 .overlay.active {
@@ -234,12 +215,11 @@ body {
     border-radius: 15px;
     padding: 40px;
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     text-align: center;
     position: relative;
     color: #FFF5EE;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-    margin: 0 auto;
 }
 
 .close-btn {
@@ -299,15 +279,13 @@ body {
     to { opacity: 1; }
 }
 
-/* Social Links */
+/* KEEP YOUR SOCIAL LINKS STYLES */
 .social-links {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin: 2rem 0;
     flex-wrap: wrap;
-    padding: 0;
-    width: 100%;
 }
 
 .social-link {
@@ -331,7 +309,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Certifications Section */
+/* KEEP CERTIFICATIONS STYLES */
 .certs-section {
     text-align: center;
     margin-top: 2rem;
@@ -339,8 +317,6 @@ body {
     background: rgba(63, 60, 73, 0.2);
     border-radius: 8px;
     border: 1px solid #FFF5EE;
-    width: 100%;
-    max-width: 100%;
 }
 
 .certs-section h3 {
@@ -354,7 +330,7 @@ body {
     font-style: italic;
 }
 
-/* Discord clipboard */
+/* KEEP DISCORD TOOLTIP */
 .discord-tooltip {
     position: absolute;
     bottom: 100%;
@@ -370,17 +346,12 @@ body {
     border: 1px solid #FFF5EE;
 }
 
-/* ========== RESPONSIVE STYLES ========== */
+/* ========== MINIMAL MOBILE FIXES ONLY ========== */
 
-/* Tablet Styles (768px and below) */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
     .menu {
         padding: 10px 20px;
-        margin: 15px auto;
+        margin: 15px auto 0 auto;
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
@@ -398,7 +369,7 @@ body {
     }
     
     .voidpacket {
-        padding: 50px 15px 80px 15px;
+        padding: 30px 15px;
         min-height: 30vh;
     }
     
@@ -412,69 +383,21 @@ body {
         max-width: 95%;
     }
     
+    /* FIX ABOUT SECTION FOR MOBILE */
     #about-section p {
+        margin: 10px 0; /* REMOVE THE 100px MARGIN THAT CAUSES SHIFT */
         font-size: 1.2rem;
         padding: 25px;
         line-height: 1.6;
-        margin: 0 0 25px 0;
-    }
-    
-    #about-section h2 {
-        padding: 8px 16px;
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-    }
-    
-    .hacking-platforms {
-        margin: 50px 0;
-        gap: 15px;
     }
     
     .platform-box {
-        flex: 1 1 calc(50% - 15px);
-        min-width: 140px;
+        flex: 0 0 calc(50% - 15px); /* KEEP GRID LAYOUT */
         height: 200px;
-        font-size: 1.5rem;
-    }
-    
-    .expanded-content {
-        padding: 30px 20px;
-        margin: 0 10px;
-    }
-    
-    .social-links {
-        gap: 0.8rem;
-    }
-    
-    .social-link {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
     }
 }
 
-/* Mobile Styles (480px and below) */
 @media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .menu {
-        width: 90%;
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 25px;
-        margin: 10px auto;
-    }
-    
-    .menu > p {
-        order: -1;
-        margin-bottom: 5px;
-    }
-    
-    .voidpacket {
-        padding: 30px 10px 60px 10px;
-    }
-    
     .voidpacket h1 {
         font-size: 3.5rem;
     }
@@ -482,150 +405,35 @@ body {
     .voidpacket h2 {
         font-size: 1rem;
         margin: -10px 0 0 0;
-        max-width: 100%;
-        padding-top: 20px;
     }
     
+    .menu {
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 25px;
+    }
+    
+    .menu > p {
+        order: -1;
+        margin-bottom: 5px;
+    }
+    
+    /* FIX ABOUT SECTION FOR SMALL MOBILE */
     #about-section p {
         font-size: 1rem;
         padding: 20px;
         line-height: 1.5;
-        margin: 0 0 20px 0;
-    }
-    
-    #about-section h2 {
-        padding: 6px 12px;
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-    }
-    
-    .hacking-platforms {
-        margin: 30px 0;
-        gap: 10px;
+        margin: 10px 0;
     }
     
     .platform-box {
-        flex: 1 1 100%;
+        flex: 0 0 100%; /* STACK ON MOBILE */
         height: 150px;
-        min-width: auto;
-        font-size: 1.3rem;
-    }
-    
-    .expanded-content {
-        padding: 20px 15px;
-    }
-    
-    #expanded-title {
-        font-size: 2rem;
-    }
-    
-    #expanded-desc {
-        font-size: 1rem;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    
-    .social-link {
-        width: 100%;
-        max-width: 200px;
-        justify-content: center;
-    }
-    
-    .certs-section {
-        padding: 1rem;
-        margin-top: 1.5rem;
     }
 }
 
-/* Large Desktop Styles (1200px and below) */
 @media (max-width: 1200px) {
     .voidpacket h1 {
         font-size: 9rem;
     }
-}
-
-/* Mobile hover fixes */
-@media (hover: none) and (pointer: coarse) {
-    .platform-box:hover,
-    a:hover,
-    a:focus {
-        transform: none !important;
-    }
-    
-    .platform-btn:hover,
-    .github-btn:hover,
-    .social-link:hover {
-        transform: none !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: #FFF5EE !important;
-    }
-}
-
-/* Safe area handling for notches */
-@supports(padding: max(0px)) {
-    body {
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
-    }
-    
-    .container {
-        padding-left: max(20px, env(safe-area-inset-left));
-        padding-right: max(20px, env(safe-area-inset-right));
-    }
-    
-    @media (max-width: 768px) {
-        .container {
-            padding-left: max(15px, env(safe-area-inset-left));
-            padding-right: max(15px, env(safe-area-inset-right));
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .container {
-            padding-left: max(10px, env(safe-area-inset-left));
-            padding-right: max(10px, env(safe-area-inset-right));
-        }
-    }
-}
-
-/* Ensure no horizontal overflow */
-body, html {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Fix for very small screens */
-@media (max-width: 360px) {
-    .voidpacket h1 {
-        font-size: 2.8rem;
-    }
-    
-    .voidpacket h2 {
-        font-size: 0.9rem;
-    }
-    
-    .menu > a {
-        font-size: 0.8rem;
-        padding: 5px 8px;
-    }
-    
-    #about-section p {
-        font-size: 0.9rem;
-        padding: 15px;
-    }
-}
-
-/* Link styles */
-a {
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover, a:focus {
-    transform: scale(1.1);
-    text-shadow: 0 0 20px #8255ec;
 }
