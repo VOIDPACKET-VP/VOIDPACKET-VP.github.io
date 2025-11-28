@@ -28,7 +28,7 @@ a:hover, a:focus {
     text-shadow: 0 0 20px #8255ec;
 }
 
-/* RESTORE ORIGINAL MENU STYLES */
+
 .menu {
     width: 95%;
     max-width: 1200px;
@@ -44,6 +44,7 @@ a:hover, a:focus {
     position: sticky;
     top: 10px;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 .menu > a {
@@ -67,7 +68,6 @@ a:hover, a:focus {
     font-size: 1.1rem;
 }
 
-/* FIX VOIDPACKET CENTERING */
 .voidpacket {
     font-family: "Orbitron", sans-serif;
     display: flex;
@@ -79,8 +79,8 @@ a:hover, a:focus {
     padding: 110px 20px 200px 20px;
     min-height: 40vh;
     width: 100%;
+    box-sizing: border-box;
 }
-
 .voidpacket h1 {
     font-size: 11rem;
     font-weight: 900;
@@ -88,6 +88,8 @@ a:hover, a:focus {
     line-height: 1;
     width: 100%;
     text-align: center;
+    word-wrap: break-word; /* ALLOW WORD BREAKING */
+    overflow-wrap: break-word; /* MODERN BROWSERS */
 }
 
 .voidpacket h2 {
@@ -348,21 +350,22 @@ a:hover, a:focus {
 
 /* ========== MINIMAL MOBILE FIXES ONLY ========== */
 
+@media (max-width: 1200px) {
+    .voidpacket h1 {
+        font-size: 9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .menu {
         padding: 10px 20px;
         margin: 15px auto 0 auto;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
         width: 90%;
     }
-    
     .menu > a {
         font-size: 0.9rem;
         padding: 6px 12px;
     }
-    
     .menu > p {
         font-size: 1rem;
         padding: 0 10px;
@@ -374,7 +377,8 @@ a:hover, a:focus {
     }
     
     .voidpacket h1 {
-        font-size: 5rem;
+        font-size: 4rem; /* SMALLER TO PREVENT OVERFLOW */
+        word-break: break-word; /* FORCE BREAK IF NEEDED */
     }
     
     .voidpacket h2 {
@@ -399,7 +403,8 @@ a:hover, a:focus {
 
 @media (max-width: 480px) {
     .voidpacket h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem; /* EVEN SMALLER FOR MOBILE */
+        letter-spacing: -1px; /* COMPENSATE FOR SMALLER SIZE */
     }
     
     .voidpacket h2 {
@@ -408,14 +413,25 @@ a:hover, a:focus {
     }
     
     .menu {
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 25px;
+        /* KEEP the bar shape but make it work on mobile */
+        flex-direction: row; /* KEEP AS ROW to maintain bar shape */
+        flex-wrap: nowrap; /* PREVENT WRAPPING */
+        gap: 5px;
+        border-radius: 50px; /* KEEP THE ROUNDED BAR */
+        padding: 8px 15px;
+        width: 95%;
     }
     
     .menu > p {
         order: -1;
-        margin-bottom: 5px;
+        margin-bottom: 0; /* REMOVE margin that breaks alignment */
+        font-size: 0.9rem;
+    }
+    
+    .menu > a {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        white-space: nowrap; /* PREVENT TEXT WRAPPING */
     }
     
     /* FIX ABOUT SECTION FOR SMALL MOBILE */
@@ -432,8 +448,17 @@ a:hover, a:focus {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 360px) {
     .voidpacket h1 {
-        font-size: 9rem;
+        font-size: 2rem;
+    }
+    
+    .menu > a {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+    
+    .menu > p {
+        font-size: 0.8rem;
     }
 }
