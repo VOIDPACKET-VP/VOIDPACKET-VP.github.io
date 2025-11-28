@@ -1,15 +1,17 @@
 html {
     scroll-behavior: smooth;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: "Montserrat", sans-serif;
     background-image: url(assets/Backgrounds/marc-wieland-trnTvywx2Rg-unsplash.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: scroll; /* Better performance */
+    background-attachment: scroll;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,6 +20,7 @@ body {
     text-align: center;
 }
 
+/* Main container for centering content sections */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -25,14 +28,7 @@ body {
     padding: 0 20px;
 }
 
-a {
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-a:hover, a:focus {
-    transform: scale(1.1);
-    text-shadow: 0 0 20px #8255ec;
-}
+/* Menu should NOT be inside container for full width */
 .menu {
     width: 95%;
     max-width: 1200px;
@@ -49,6 +45,7 @@ a:hover, a:focus {
     top: 10px;
     z-index: 2;
 }
+
 .menu > a {
     color: #FFF5EE;
     font-family: "Montserrat", sans-serif;
@@ -59,6 +56,7 @@ a:hover, a:focus {
     flex-shrink: 0;
     text-align: center;
 }
+
 .menu > p {
     font-family: "Orbitron", sans-serif;
     font-weight: 500;
@@ -68,40 +66,8 @@ a:hover, a:focus {
     padding: 0 15px;
     font-size: 1.1rem;
 }
-@media (max-width: 768px) {
-    .menu {
-        padding: 10px 20px;
-        margin: 15px auto 0 auto;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .menu > a {
-        font-size: 0.9rem;
-        padding: 6px 12px;
-    }
-    
-    .menu > p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-    
-    /* On very small screens, stack the logo */
-    @media (max-width: 480px) {
-        .menu {
-            flex-direction: column;
-            gap: 8px;
-            border-radius: 25px;
-        }
-        
-        .menu > p {
-            order: -1; /* Put VOIDPACKET at top */
-            margin-bottom: 5px;
-        }
-    }
-}
 
+/* Voidpacket Section */
 .voidpacket {
     font-family: "Orbitron", sans-serif;
     display: flex;
@@ -120,7 +86,9 @@ a:hover, a:focus {
     font-weight: 900;
     margin: 0;
     line-height: 1;
+    width: 100%;
 }
+
 .voidpacket h2 {
     font-size: 2rem;
     text-decoration: underline;
@@ -130,63 +98,43 @@ a:hover, a:focus {
     text-align: center;
     max-width: 90%;
 }
-@media (max-width: 1200px) {
-    .voidpacket h1 {
-        font-size: 9rem; /* Scale down for smaller laptops */
-    }
-}
-@media (max-width: 768px) {
-    .voidpacket {
-        padding: 30px 15px;
-        min-height: 30vh;
-    }
-    
-    .voidpacket h1 {
-        font-size: 5rem; /* Much smaller for mobile */
-    }
-    
-    .voidpacket h2 {
-        font-size: 1.3rem;
-        margin: -15px 0 0 0; /* Adjust negative margin for smaller font */
-        max-width: 95%;
-    }
-}
-@media (max-width: 480px) {
-    .voidpacket h1 {
-        font-size: 3.5rem; /* Even smaller for very small screens */
-    }
-    
-    .voidpacket h2 {
-        font-size: 1rem;
-        margin: -10px 0 0 0;
-    }
-}
 
+/* About Section - COMPLETELY FIXED */
 #about-section {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     color: #FFF5EE;
-    margin-bottom: 50px;
+    margin: 50px 0;
+    width: 100%;
+    padding: 0;
 }
+
 #about-section h2 {
     background-color: rgba(63, 60, 73, 0.4);
     border: 1px solid #FFF5EE;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 20px;
+    width: auto;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
 }
+
 #about-section p {
     text-align: center;
-    margin: 10px 100px;
+    margin: 0 0 30px 0;
     font-size: 1.7rem;
     padding: 40px;
     background-color: rgba(63, 60, 73, 0.4);
     border: 1px solid #FFF5EE;
     border-radius: 10px;
-    line-height: 50px;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
 }
 
+/* Hacking Platforms */
 .hacking-platforms {
     display: flex;
     flex-wrap: wrap;
@@ -199,6 +147,8 @@ a:hover, a:focus {
     text-decoration: underline;
     text-shadow: 0 0 10px #000000;
     transition: filter 0.3s ease;
+    padding: 0;
+    width: 100%;
 }
 
 .hacking-platforms.blurred {
@@ -222,26 +172,13 @@ a:hover, a:focus {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* Mobile hover fixes */
-@media (hover: none) and (pointer: coarse) {
-    .platform-box:hover,
-    a:hover,
-    a:focus {
-        transform: none !important;
-    }
-    
-    .platform-btn:hover,
-    .github-btn:hover,
-    .social-link:hover {
-        transform: none !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: #FFF5EE !important;
-    }
-}
+
 .platform-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
+
+/* Platform background images */
 #portswigger { 
     background-image: url(assets/hacking/portswigger.webp); 
 }
@@ -270,6 +207,7 @@ a:hover, a:focus {
     background-image: url(assets/hacking/intigriti.webp); 
 }
 
+/* Overlay Styles */
 .overlay {
     position: fixed;
     top: 0;
@@ -282,6 +220,7 @@ a:hover, a:focus {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px;
 }
 
 .overlay.active {
@@ -295,11 +234,12 @@ a:hover, a:focus {
     border-radius: 15px;
     padding: 40px;
     max-width: 600px;
-    width: 90%;
+    width: 100%;
     text-align: center;
     position: relative;
     color: #FFF5EE;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    margin: 0 auto;
 }
 
 .close-btn {
@@ -359,28 +299,6 @@ a:hover, a:focus {
     to { opacity: 1; }
 }
 
-/* About Section Styles */
-#about-section {
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-}
-
-#about-section h2 {
-    color: #FFF5EE;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-#about-section p {
-    color: #FFF5EE;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 /* Social Links */
 .social-links {
     display: flex;
@@ -388,6 +306,8 @@ a:hover, a:focus {
     gap: 1rem;
     margin: 2rem 0;
     flex-wrap: wrap;
+    padding: 0;
+    width: 100%;
 }
 
 .social-link {
@@ -419,6 +339,8 @@ a:hover, a:focus {
     background: rgba(63, 60, 73, 0.2);
     border-radius: 8px;
     border: 1px solid #FFF5EE;
+    width: 100%;
+    max-width: 100%;
 }
 
 .certs-section h3 {
@@ -428,11 +350,11 @@ a:hover, a:focus {
 }
 
 .coming-soon {
-    color: rgba(255, 245, 238, 0.);
+    color: rgba(255, 245, 238, 0.7);
     font-style: italic;
 }
 
-/* dicord clipboard */
+/* Discord clipboard */
 .discord-tooltip {
     position: absolute;
     bottom: 100%;
@@ -445,19 +367,108 @@ a:hover, a:focus {
     font-size: 0.9rem;
     white-space: nowrap;
     margin-bottom: 0.5rem;
-    border: 1px solid #FFF5EE;;
+    border: 1px solid #FFF5EE;
 }
 
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Tablet Styles (768px and below) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .menu {
+        padding: 10px 20px;
+        margin: 15px auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 90%;
+    }
+    
+    .menu > a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+    
+    .menu > p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    .voidpacket {
+        padding: 50px 15px 80px 15px;
+        min-height: 30vh;
+    }
+    
+    .voidpacket h1 {
+        font-size: 5rem;
+    }
+    
+    .voidpacket h2 {
+        font-size: 1.3rem;
+        margin: -15px 0 0 0;
+        max-width: 95%;
+    }
+    
+    #about-section p {
+        font-size: 1.2rem;
+        padding: 25px;
+        line-height: 1.6;
+        margin: 0 0 25px 0;
+    }
+    
+    #about-section h2 {
+        padding: 8px 16px;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .hacking-platforms {
+        margin: 50px 0;
+        gap: 15px;
+    }
+    
+    .platform-box {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 140px;
+        height: 200px;
+        font-size: 1.5rem;
+    }
+    
+    .expanded-content {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .social-links {
+        gap: 0.8rem;
+    }
+    
+    .social-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Styles (480px and below) */
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
     }
     
     .menu {
-        width: 85%;
+        width: 90%;
         flex-direction: column;
         gap: 8px;
         border-radius: 25px;
+        margin: 10px auto;
+    }
+    
+    .menu > p {
+        order: -1;
+        margin-bottom: 5px;
     }
     
     .voidpacket {
@@ -465,27 +476,156 @@ a:hover, a:focus {
     }
     
     .voidpacket h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+    }
+    
+    .voidpacket h2 {
+        font-size: 1rem;
+        margin: -10px 0 0 0;
+        max-width: 100%;
+        padding-top: 20px;
+    }
+    
+    #about-section p {
+        font-size: 1rem;
+        padding: 20px;
+        line-height: 1.5;
+        margin: 0 0 20px 0;
+    }
+    
+    #about-section h2 {
+        padding: 6px 12px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .hacking-platforms {
+        margin: 30px 0;
+        gap: 10px;
     }
     
     .platform-box {
         flex: 1 1 100%;
         height: 150px;
         min-width: auto;
+        font-size: 1.3rem;
     }
     
-    #about-section p {
+    .expanded-content {
+        padding: 20px 15px;
+    }
+    
+    #expanded-title {
+        font-size: 2rem;
+    }
+    
+    #expanded-desc {
         font-size: 1rem;
-        padding: 15px;
-        line-height: 1.5;
-        margin: 10px 0;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+    
+    .certs-section {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Large Desktop Styles (1200px and below) */
+@media (max-width: 1200px) {
+    .voidpacket h1 {
+        font-size: 9rem;
+    }
+}
+
+/* Mobile hover fixes */
+@media (hover: none) and (pointer: coarse) {
+    .platform-box:hover,
+    a:hover,
+    a:focus {
+        transform: none !important;
+    }
+    
+    .platform-btn:hover,
+    .github-btn:hover,
+    .social-link:hover {
+        transform: none !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #FFF5EE !important;
     }
 }
 
 /* Safe area handling for notches */
 @supports(padding: max(0px)) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
     .container {
         padding-left: max(20px, env(safe-area-inset-left));
         padding-right: max(20px, env(safe-area-inset-right));
     }
+    
+    @media (max-width: 768px) {
+        .container {
+            padding-left: max(15px, env(safe-area-inset-left));
+            padding-right: max(15px, env(safe-area-inset-right));
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .container {
+            padding-left: max(10px, env(safe-area-inset-left));
+            padding-right: max(10px, env(safe-area-inset-right));
+        }
+    }
+}
+
+/* Ensure no horizontal overflow */
+body, html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+    .voidpacket h1 {
+        font-size: 2.8rem;
+    }
+    
+    .voidpacket h2 {
+        font-size: 0.9rem;
+    }
+    
+    .menu > a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+    
+    #about-section p {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+
+/* Link styles */
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover, a:focus {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px #8255ec;
 }
