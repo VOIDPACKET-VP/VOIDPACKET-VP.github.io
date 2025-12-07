@@ -172,13 +172,19 @@ a:hover, a:focus {
     position: relative;
     z-index: 1;
 }
-
+.platform-box.full-width {
+    width: 100%;
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
 .platform-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 #portswigger { background-image: url(assets/hacking/portswigger.webp); }
+#webgalaxies { background-image: url(assets/hacking/VP_logo.jpg);}
 #bugforge { background: #1a1a1a; }
 #ctf { background-image: url(assets/hacking/ctf.webp); }
 #tryhackme { background-image: url(assets/hacking/thm.webp); }
@@ -270,6 +276,19 @@ a:hover, a:focus {
     background: #FFF5EE;
     color: #000;
     transform: translateY(-2px);
+}
+
+/* Hide platform button for webgalaxies specifically */
+#platform-overlay.active #platform-link[href="same-as-github"] {
+    display: none !important;
+}
+
+/* Style the GitHub button when it's the only one */
+#platform-overlay.active #github-link:only-child,
+#platform-overlay.active #platform-link[href="same-as-github"] + #github-link {
+    margin: 0 auto;
+    display: block !important;
+    width: fit-content;
 }
 
 @keyframes fadeIn {
