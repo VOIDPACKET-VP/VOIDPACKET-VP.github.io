@@ -193,6 +193,8 @@ a:hover, a:focus {
 #pico { background-image: url(assets/hacking/picoctf-logo-og.webp); }
 #hacktheweb { background-image: url(assets/hacking/hacktheweb_362cc92895.webp); }
 #intigriti { background-image: url(assets/hacking/intigriti.webp); }
+#scrimba { background: linear-gradient(135deg, rgba(102, 74, 195, 0.8), rgba(102, 74, 195, 0.4));
+    backdrop-filter: blur(10px);}
 
 .overlay {
     position: fixed;

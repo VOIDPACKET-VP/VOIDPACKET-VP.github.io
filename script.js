@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
             platformLink.href = link;
             githubLink.href = `${github}`;
             
+            if (this.id === 'scrimba') {
+                githubLink.textContent = 'Start learning';
+            } else {
+                githubLink.textContent = 'My Documentation';
+            }
+            
             // Show overlay and blur background
             overlay.classList.add('active');
             platformsSection.classList.add('blurred');
