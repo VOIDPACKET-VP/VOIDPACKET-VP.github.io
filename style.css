@@ -330,7 +330,7 @@ a:hover, a:focus {
 .certs-section {
     text-align: center;
     margin-top: 2rem;
-    padding: 1.5rem;
+    padding: 2rem; /* Increased padding for the bigger image */
     background: rgba(63, 60, 73, 0.2);
     border-radius: 8px;
     border: 1px solid #FFF5EE;
@@ -338,13 +338,28 @@ a:hover, a:focus {
 
 .certs-section h3 {
     color: #FFF5EE;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-size: 1.4rem; /* Slightly larger heading for balance */
 }
 
-.coming-soon {
-    color: rgba(255, 245, 238, 0.7);
-    font-style: italic;
+#pwpa {
+    display: block;
+    margin: 0 auto;
+    
+    /* THE FIX: Bigger size while remaining responsive */
+    width: 450px; 
+    max-width: 95%; /* This prevents it from being "too big" on mobile screens */
+    
+    height: auto;
+    border: 2px solid #FFF5EE;
+    border-radius: 6px;
+    
+    transition: transform 0.3s ease-in-out; 
+    cursor: pointer;
+}
+
+#pwpa:hover {
+    transform: scale(1.05); 
 }
 
 .discord-tooltip {
@@ -472,3 +487,5 @@ a:hover, a:focus {
         font-size: 0.8rem;
     }
 }
+
+
