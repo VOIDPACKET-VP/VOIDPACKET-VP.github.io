@@ -1,0 +1,22 @@
+{
+  "name": "voidpacket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.1",
+    "markdown-it-mark": "^4.0.0"
+  }
+}

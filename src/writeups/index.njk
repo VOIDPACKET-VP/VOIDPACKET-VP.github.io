@@ -1,0 +1,51 @@
+---
+title: Writeups
+permalink: /writeups/index.html
+---
+{% extends "layouts/scroll-page.njk" %}
+
+{% block heroContent %}
+  <div class="hero-tag">CTFs &amp; Challenges</div>
+  <h1 class="hero-name">Write<span>ups</span></h1>
+  <p class="hero-role">Boxes, challenges, and the occasional rabbit hole.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="section">
+    <div class="section-label reveal">{{ collections.writeups.length }} Total</div>
+    <h2 class="section-title reveal">All writeups.</h2>
+
+    {% set categories = collections.writeups | uniqueValues("category") %}
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      {% for cat in categories %}
+      <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+      {% endfor %}
+    </div>
+
+    {% if collections.writeups.length %}
+    <div class="entry-list reveal-stagger">
+      {% for item in collections.writeups %}
+      <a href="{{ item.url }}" class="entry-row" data-tags="{{ item.data.category }}">
+        <span class="entry-cat">{{ item.data.category }}</span>
+        <div class="entry-body">
+          <div class="entry-title">{{ item.data.title }}</div>
+          <div class="entry-summary">{{ item.data.summary }}</div>
+          {% if item.data.tags %}
+          <div class="entry-tags">
+            {% for tag in item.data.tags %}<span class="entry-tag">{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="entry-meta">
+          <span class="entry-date">{{ item.data.date | dateReadable }}</span>
+          {% if item.data.difficulty %}<span class="entry-diff {{ item.data.difficulty | lower }}">{{ item.data.difficulty }}</span>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state reveal">No writeups yet — push a markdown file to <code>src/content/writeups/</code> to get started.</div>
+    {% endif %}
+  </div>
+{% endblock %}

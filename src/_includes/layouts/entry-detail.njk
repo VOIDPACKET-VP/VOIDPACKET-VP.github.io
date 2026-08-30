@@ -1,0 +1,26 @@
+{% extends "layouts/scroll-page.njk" %}
+
+{% block heroContent %}
+  <a href="{{ backLink }}" class="detail-back hero-tag" style="color: rgba(255,255,255,0.4); text-transform: uppercase;">&larr; {{ backLabel }}</a>
+
+  <div class="detail-tag-row">
+    {% if category %}<span class="entry-cat">{{ category }}</span>{% endif %}
+    {% if platform %}<span class="entry-tag">{{ platform }}</span>{% endif %}
+    {% if difficulty %}<span class="entry-diff {{ difficulty | lower }}">{{ difficulty }}</span>{% endif %}
+  </div>
+
+  <h1 class="hero-name" style="font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1.05;">{{ title }}</h1>
+
+  <div class="detail-meta-row">
+    {% if date %}<span><strong>{{ date | dateReadable }}</strong></span>{% endif %}
+    {% if tags %}<span>{{ tags | join(" · ") }}</span>{% endif %}
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="prose-wrap">
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,0 @@
-[submodule "docs/labs"]
-	path = docs/labs
-	url = https://github.com/VOIDPACKET-VP/Labs-Documentation.git
-[submodule "docs/galaxies"]
-	path = docs/galaxies
-	url = https://github.com/VOIDPACKET-VP/VOIDPACKET-Web-Galaxies.git

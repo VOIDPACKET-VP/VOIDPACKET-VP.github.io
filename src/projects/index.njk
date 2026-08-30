@@ -1,0 +1,49 @@
+---
+title: Projects
+permalink: /projects/index.html
+---
+{% extends "layouts/scroll-page.njk" %}
+
+{% block heroContent %}
+  <div class="hero-tag">Things I've Built</div>
+  <h1 class="hero-name">Pro<span>jects</span></h1>
+  <p class="hero-role">Side projects, tools, and experiments.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="section">
+    <div class="section-label reveal">{{ collections.projects.length }} Total</div>
+    <h2 class="section-title reveal">All projects.</h2>
+
+    {% if collections.projects.length %}
+    <div class="projects-grid reveal-stagger">
+      {% for project in collections.projects %}
+      <a href="{{ project.data.link or project.url }}" class="project-card p{{ (loop.index % 3) + 1 }}" {% if project.data.link %}target="_blank"{% endif %}>
+        <div class="project-thumb">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="20" stroke="rgba(91,94,255,0.4)" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="10" stroke="rgba(91,94,255,0.6)" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="3" fill="rgba(91,94,255,0.9)"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            {% for tag in project.data.tags %}<span class="project-tag">{{ tag }}</span>{% endfor %}
+          </div>
+          <div class="project-name">{{ project.data.title }}</div>
+          <p class="project-desc">{{ project.data.summary }}</p>
+          <div class="project-link">
+            View Project
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state reveal">No projects yet — push a markdown file to <code>src/content/projects/</code> to get started.</div>
+    {% endif %}
+  </div>
+{% endblock %}

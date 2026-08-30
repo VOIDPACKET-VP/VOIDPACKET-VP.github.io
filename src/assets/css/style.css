@@ -1,0 +1,244 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-dark:      #0b0e1a;
+    --bg-light:     #ebf2fa;
+    --accent:       #5b5eff;
+    --text-white:   #ebf2fa;
+    --text-dark:    #2e3354;
+    --text-hero-faded: rgba(55, 60, 90, 0.38);
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+  }
+
+  /* ─── Background transition layer ───────────────────── */
+  .bg {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-dark);
+    transition: background-color 0.9s cubic-bezier(0.77,0,0.18,1);
+    z-index: 0;
+  }
+
+  body.menu-open .bg {
+    background-color: var(--bg-light);
+  }
+
+  /* ─── Noise Overlay ──────────────────────────────────── */
+  .noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  /* ─── Lines Canvas ───────────────────────────────────── */
+  .lines-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ─── Grid Icon ──────────────────────────────────────── */
+  .grid-icon {
+    position: fixed;
+    top: 24px;
+    left: 28px;
+    z-index: 20;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.2s forwards;
+  }
+
+  .grid-icon .dot {
+    fill: rgba(255,255,255,0.35);
+    transition: fill 0.9s cubic-bezier(0.77,0,0.18,1);
+  }
+
+  body.menu-open .grid-icon .dot {
+    fill: #2e3354;
+  }
+
+  /* ─── Arrow button ───────────────────────────────────── */
+  .arrow-btn {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 20;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.9s forwards;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 0.3s ease;
+  }
+
+  .arrow-btn:hover {
+    transform: scale(1.15);
+  }
+
+  .arrow-btn svg {
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.77,0,0.18,1);
+  }
+
+  .arrow-btn .arrow-line,
+  .arrow-btn .arrow-head {
+    stroke: rgba(91, 94, 255, 0.85);
+    transition: stroke 0.9s cubic-bezier(0.77,0,0.18,1);
+  }
+
+  body.menu-open .arrow-btn .arrow-line,
+  body.menu-open .arrow-btn .arrow-head {
+    stroke: #2e3354;
+  }
+
+  /* Flip arrow to point up on menu screen */
+  body.menu-open .arrow-btn svg {
+    transform: rotate(180deg);
+  }
+
+  /* ─── SCREEN 1: Hero ─────────────────────────────────── */
+  .screen-hero {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.77,0,0.18,1);
+  }
+
+  body.menu-open .screen-hero {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    text-align: left;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;
+  }
+
+  .hero-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    color: var(--text-white);
+    line-height: 0.3;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-content .sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    margin-top: 4px;
+  }
+
+  /* ─── SCREEN 2: Menu ─────────────────────────────────── */
+  .screen-menu {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(40px);
+    pointer-events: none;
+    transition: opacity 0.7s ease 0.15s, transform 0.8s cubic-bezier(0.77,0,0.18,1) 0.1s;
+  }
+
+  body.menu-open .screen-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .menu-page {
+    width: 100%;
+    max-width: 860px;
+    padding: 0 3rem;
+  }
+
+  /* ─── Nav List ───────────────────────────────────────── */
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-list li {
+    overflow: hidden;
+  }
+
+  .nav-list a {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.4rem, 6.5vw, 5rem);
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    position: relative;
+    transition: letter-spacing 0.35s ease, opacity 0.25s ease;
+
+    transform: translateY(100%);
+    opacity: 0;
+    transition:
+      transform 0.4s cubic-bezier(0.22,1,0.36,1),
+      opacity   0.4s ease,
+      letter-spacing 0.4s ease;
+  }
+
+  .nav-list a.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-list a:hover { letter-spacing: 0.12em; }
+  .nav-list a:hover::after { width: 100%; }
+
+  /* Dim siblings on hover */
+  .nav-list:has(a:hover) a:not(:hover) { opacity: 0.25; }
+
+  /* ─── Shared Animations ──────────────────────────────── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }

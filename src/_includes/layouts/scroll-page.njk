@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voidpacket - {{ title }}</title>
+  <link rel="icon" type="image/png" href="/assets/img/voidpacket-logo.svg">
+  <link rel="stylesheet" href="/assets/css/about.css">
+  <link rel="stylesheet" href="/assets/css/content.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  {% block extraHead %}{% endblock %}
+</head>
+<body>
+
+<a href="/">
+  <div class="grid-icon dark-mode" id="gridIcon">
+    <svg width="260" height="52" viewBox="0 0 260 52" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"  y="6"  width="20" height="20" rx="4" fill="#5b5eff" opacity="1.00"/>
+      <rect x="24" y="6"  width="20" height="20" rx="4" fill="#7b7bff" opacity="0.50"/>
+      <rect x="0"  y="30" width="20" height="20" rx="4" fill="#7b7bff" opacity="0.50"/>
+      <rect x="24" y="30" width="20" height="20" rx="4" fill="#5b5eff" opacity="1.00"/>
+    </svg>
+  </div>
+</a>
+
+<section class="hero">
+  <div class="hero-noise"></div>
+  <svg class="hero-lines" id="heroLines" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  {% block heroContent %}{% endblock %}
+
+  <div class="scroll-hint">
+    <div class="line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="sections">
+  {% block content %}{% endblock %}
+</div>
+
+{% block beforeFooter %}{% endblock %}
+
+<footer class="footer">
+  <div class="footer-brand">
+    <svg width="320" height="52" viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"  y="6"  width="20" height="20" rx="4" fill="#ffffff5e" opacity="1.00"/>
+      <rect x="24" y="6"  width="20" height="20" rx="4" fill="#ffffff2e" opacity="0.50"/>
+      <rect x="0"  y="30" width="20" height="20" rx="4" fill="#ffffff2e" opacity="0.50"/>
+      <rect x="24" y="30" width="20" height="20" rx="4" fill="#ffffff5e" opacity="1.00"/>
+      <text x="54" y="22" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="600" font-size="20" fill="#ffffff5e" letter-spacing="-0.3">Inside Voidpacket</text>
+      <text x="54" y="40" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="400" font-size="13" fill="#ffffff5e" letter-spacing="0.6">ecosystem</text>
+    </svg>
+  </div>
+  <div class="footer-copy">© {{ buildYear }} Akram ELQABLY · All rights reserved</div>
+</footer>
+
+  <script src="/assets/js/site.js"></script>
+  {% block extraScripts %}{% endblock %}
+</body>
+</html>
