@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: layouts/entry-detail.njk
 title: "OST2 : Writing Assembly"
@@ -156,4 +155,3 @@ target address − address after the jump
 ```
 
 So when calculating a jump manually, I need to count the length of every instruction, include the complete length of the jump itself, find the offset of the target label, subtract, and finally encode the result in little-endian order.
-```
