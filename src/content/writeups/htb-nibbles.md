@@ -1,18 +1,14 @@
 ---
-backLabel: Writeups
-backLink: /writeups/
-summary: The First HTB Box you'll solve in the CPTS Path
-tags:
-  - rce
-  - upload
-  - php
-  - PrivEsc
-difficulty: Easy
-platform: HackTheBox
-category: Web
-date: 2026-08-15
-title: HTB — Nibbles
 layout: layouts/entry-detail.njk
+title: "HTB : Nibbles"
+date: 2026-08-15
+category: Web
+platform: Hack The Box
+difficulty: Easy
+tags: [rce, upload, php, PrivEsc]
+summary: "The First HTB Lab you'll solve in the CPTS path"
+backLink: /writeups/
+backLabel: Writeups
 ---
 
 # About This Box
