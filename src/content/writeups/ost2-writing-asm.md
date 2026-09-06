@@ -93,7 +93,7 @@ C3                   ; offset 11
 
 The `JZ` instruction begins at offset 06 and is 6 bytes long, so the address immediately after it is offset 0C. The label is located at offset 11. Therefore:
 
-$$\text{0x11} - \text{0x0C} = \text{0x05}$$
+==_0x11 - 0x0C = 0x05_==
 
 The relative displacement is 0x05, which is encoded as a 32-bit little-endian value:
 
@@ -153,11 +153,11 @@ Once compiled, reviewing the code in the Visual Studio disassembly window reveal
 .code
 asmToOpCode_challenge PROC
 
-	db 0B8h, 0DDh, 0CCh, 0BBh, 0AAh				; mov eax, 0xAABBCCDD
-	db 09Eh										; sahf					
-	db 00Fh, 084h, 005h, 000h, 000h, 000h		; jz mylabel			
-	db 025h, 037h, 013h, 003h, 000h				; and eax, 0x31337		
-	db 0C3h										; ret
+	db 0B8h, 0DDh, 0CCh, 0BBh, 0AAh         ; mov eax, 0xAABBCCDD
+	db 09Eh                                 ; sahf					
+	db 00Fh, 084h, 005h, 000h, 000h, 000h	; jz mylabel			
+	db 025h, 037h, 013h, 003h, 000h         ; and eax, 0x31337		
+	db 0C3h                                 ; ret
 
 asmToOpCode_challenge ENDP
 end
@@ -176,6 +176,6 @@ int main(void)
 
 The main lesson was that labels do not generate bytes themselves. `mylabel:` simply marks the address of the next instruction. The assembler uses that address to calculate the jump displacement. For relative jumps, the essential rule is:
 
-$$\text{relative displacement} = \text{target address} - \text{address after the jump}$$
+==_relative displacement = target address - address after the jump_==
 
 So when calculating a jump manually, I need to count the length of every instruction, include the complete length of the jump itself, find the offset of the target label, subtract, and finally encode the result in little-endian order.
